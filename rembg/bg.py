@@ -77,7 +77,7 @@ def alpha_matting_cutout(
     img_normalized = img_array / 255.0
     trimap_normalized = trimap / 255.0
 
-    alpha = estimate_alpha_cf(img_normalized, trimap_normalized, cg_kwargs={"maxiter": 500})
+    alpha = estimate_alpha_cf(img_normalized, trimap_normalized, cg_kwargs={"maxiter": 250})
     foreground = estimate_foreground_ml(img_normalized, alpha)
     cutout = stack_images(foreground, alpha)
 
